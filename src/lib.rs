@@ -114,25 +114,30 @@
 // }
 // # })().unwrap();
 // ```
+#![no_std]
+#![feature(alloc)]
 #![deny(missing_docs)]
 
 // Uncomment to run tests
 //#![cfg_attr(test, feature(test))]
-
 #[cfg(feature = "c_api")]
 extern crate libc;
 extern crate lzw;
+extern crate alloc;
 
 mod traits;
 mod common;
 mod util;
 mod reader;
-mod encoder;
+//mod encoder;
+use lzw::io;
 
 #[cfg(feature = "c_api")]
 mod c_api_utils;
 #[cfg(feature = "c_api")]
 pub mod c_api;
+
+use core as std;
 
 pub use traits::{SetParameter, Parameter};
 pub use common::{Block, Extension, DisposalMethod, Frame};
@@ -142,7 +147,7 @@ pub use reader::{StreamingDecoder, Decoded, DecodingError};
 pub use reader::{ColorOutput, MemoryLimit, Extensions};
 pub use reader::{Reader, Decoder};
 
-pub use encoder::{Encoder, ExtensionData, Repeat};
+//pub use encoder::{Encoder, ExtensionData, Repeat};
 
 #[cfg(test)]
 #[test]

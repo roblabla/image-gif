@@ -16,8 +16,8 @@ exclude = [
 ]
 
 [dependencies]
-lzw = "0.10"
-color_quant = "1.0"
+lzw = { git = "https://github.com/roblabla/lzw" }
+color_quant = { git = "https://github.com/roblabla/color_quant" }
 
 [dev-dependencies]
 glob = "0.2.10"

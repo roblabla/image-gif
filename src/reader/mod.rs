@@ -1,9 +1,10 @@
-use std::borrow::Cow;
-use std::io;
+use alloc::borrow::Cow;
+use alloc::*;
+use io;
 use std::cmp;
 use std::mem;
 use std::iter;
-use std::io::prelude::*;
+use io::{Read, BufRead};
 
 use traits::{Parameter, SetParameter};
 use common::Frame;

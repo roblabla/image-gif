@@ -1,5 +1,5 @@
 //! Traits used in this library
-use std::io;
+use io;
 
 /// Configuration parameter trait.
 ///

@@ -2,11 +2,13 @@ use std::cmp;
 use std::mem;
 use std::default::Default;
 
-use std::io;
-use std::io::prelude::*;
+use io;
+//use std::io::prelude::*;
 
 use std::fmt;
-use std::error;
+//use std::error;
+
+use alloc::*;
 
 use lzw;
 
@@ -37,7 +39,7 @@ impl fmt::Display for DecodingError {
     }
 }
 
-impl error::Error for DecodingError {
+/*impl error::Error for DecodingError {
     fn description(&self) -> &str {
         match *self {
             DecodingError::Format(ref d) => d,
@@ -52,7 +54,7 @@ impl error::Error for DecodingError {
             _ => None,
         }
     }
-}
+}*/
 
 impl From<io::Error> for DecodingError {
     fn from(err: io::Error) -> Self {

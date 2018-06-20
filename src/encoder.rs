@@ -4,9 +4,9 @@
 
 
 use std::cmp::min;
-use std::io;
-use std::io::prelude::*;
-
+use io;
+use io::Write;
+use alloc::boxed::Box;
 use lzw;
 
 use traits::{Parameter, WriteBytesExt};
@@ -100,7 +100,7 @@ impl<'a, W: Write + 'a> Write for BlockWriter<'a, W> {
     fn flush(&mut self) -> io::Result<()> {
         return Err(io::Error::new(
             io::ErrorKind::Other,
-            "Cannot flush a BlockWriter, use `drop` instead."
+            Box::new("Cannot flush a BlockWriter, use `drop` instead.")
         ))
     }
 }
@@ -153,7 +153,7 @@ impl<W: Write> Encoder<W> {
         flags |= 0b1000_0000;
         let num_colors = palette.len() / 3;
         if num_colors > 256 {
-            return Err(io::Error::new(io::ErrorKind::InvalidInput, "Too many colors"));
+            return Err(io::Error::new(io::ErrorKind::InvalidInput, Box::new("Too many colors")));
         }
         flags |= flag_size(num_colors);
         flags |= flag_size(num_colors) << 4; // wtf flag
@@ -190,7 +190,7 @@ impl<W: Write> Encoder<W> {
                 flags |= 0b1000_0000;
                 let num_colors = palette.len() / 3;
                 if num_colors > 256 {
-                    return Err(io::Error::new(io::ErrorKind::InvalidInput, "Too many colors"));
+                    return Err(io::Error::new(io::ErrorKind::InvalidInput, Box::new("Too many colors")));
                 }
                 flags |= flag_size(num_colors);
                 try!(self.w.write_le(flags));
@@ -199,7 +199,7 @@ impl<W: Write> Encoder<W> {
             None => if !self.global_palette {
                 return Err(io::Error::new(
                     io::ErrorKind::InvalidInput,
-                    "The GIF format requires a color palette but none was given."
+                    Box::new("The GIF format requires a color palette but none was given.")
                 ))
             } else {
                 self.w.write_le(flags)
