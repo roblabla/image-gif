@@ -75,7 +75,7 @@ impl<R: Read> Decoder<R> {
             r: r,
             decoder: StreamingDecoder::new(),
             memory_limit: 50_000_000, // 50 MB
-            color_output: ColorOutput::Indexed
+            color_output: ColorOutput::RGBA
         }
     }
     
