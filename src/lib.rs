@@ -123,6 +123,7 @@
 #[cfg(feature = "c_api")]
 extern crate libc;
 extern crate lzw;
+#[macro_use]
 extern crate alloc;
 
 mod traits;
