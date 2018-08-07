@@ -6,7 +6,7 @@
 use std::cmp::min;
 use io;
 use io::Write;
-use alloc::boxed::Box;
+use alloc::prelude::*;
 use lzw;
 
 use traits::{Parameter, WriteBytesExt};

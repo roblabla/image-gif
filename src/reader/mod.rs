@@ -1,5 +1,5 @@
 use alloc::borrow::Cow;
-use alloc::*;
+use alloc::prelude::*;
 use io;
 use std::cmp;
 use std::mem;
