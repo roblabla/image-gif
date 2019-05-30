@@ -8,7 +8,7 @@ use io;
 use std::fmt;
 //use std::error;
 
-use alloc::prelude::*;
+use alloc::vec::Vec;
 
 use lzw;
 

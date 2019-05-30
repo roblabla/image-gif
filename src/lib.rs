@@ -115,7 +115,6 @@
 // # })().unwrap();
 // ```
 #![no_std]
-#![feature(alloc)]
 #![deny(missing_docs)]
 
 // Uncomment to run tests

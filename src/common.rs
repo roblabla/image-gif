@@ -3,7 +3,7 @@ extern crate color_quant;
 
 use std::mem;
 use alloc::borrow::Cow;
-use alloc::prelude::*;
+use alloc::vec::Vec;
 
 /// Disposal method
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
