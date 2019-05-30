@@ -16,8 +16,8 @@ exclude = [
 ]
 
 [dependencies]
-lzw = { git = "https://github.com/roblabla/lzw" }
-color_quant = { git = "https://github.com/roblabla/color_quant" }
+lzw = { git = "https://github.com/SunriseOS/lzw" }
+color_quant = { git = "https://github.com/SunriseOS/color_quant" }
 
 [dev-dependencies]
 glob = "0.2.10"
